@@ -1,0 +1,19 @@
+﻿<Project Sdk="WixToolset.Sdk/5.0.0">
+  <PropertyGroup>
+    <GenerateGitVersionWixDefines>true</GenerateGitVersionWixDefines>
+    <DefineConstants>VersionForMsi=1.2.3</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="GitVersion.MsBuild" Version="6.0.0-rc.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <Target Name="PrintVersion" AfterTargets="Build">
+    <Message Text="WixTargetsImported: $(WixTargetsImported)" Importance="High" />
+    <Message Text="GenerateGitVersionWixDefines: $(GenerateGitVersionWixDefines)" Importance="High" />
+    <Message Text="DefineConstants: $(DefineConstants)" Importance="High" />
+    <Message Text="DisableGitVersionTask: $(DisableGitVersionTask)" Importance="High" />
+    <Message Text="MSBuildRuntimeType: $(MSBuildRuntimeType)" Importance="High" />
+  </Target>
+</Project>
